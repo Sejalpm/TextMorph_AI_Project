@@ -1,4 +1,4 @@
-# 🔮 Text Morph - Advance Text Summarization and Paraphrasing
+# 🔮 Text Morph - Advanced Text Summarization and Paraphrasing
 
 <div align="center">
 
