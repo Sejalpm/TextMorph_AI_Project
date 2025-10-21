@@ -1,4 +1,4 @@
-# 🔮 Text Morph - AI Text Processing Platform
+# 🔮 Text Morph - Advance Text Summarization and Paraphrasing
 
 <div align="center">
 
