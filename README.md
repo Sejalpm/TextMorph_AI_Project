@@ -16,7 +16,7 @@
 
 Here is a preview of the application's user interface:
 
-![Text Morph Interface](assets/app_screenshot.png)
+![Text Morph Interface](assets/screenshot1.jpg)
 
 ## 📋 Table of Contents
 
