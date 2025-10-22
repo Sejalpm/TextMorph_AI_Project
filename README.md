@@ -16,7 +16,8 @@
 
 Here is a preview of the application's user interface:
 
-![Text Morph Interface](assets/app_screenshot.png)
+![Text Morph Interface](assets/screenshot1.png)
+![Text Morph Interface](assets/screenshot2.png)
 
 ## 📋 Table of Contents
 
@@ -175,26 +176,40 @@ Your default web browser will open automatically at `http://localhost:8501`
 ## 📈 Project Structure
 
 ```
-text-morph/
+TEXT_MORPH/
 │
-├── app.py                          # Main Streamlit application with UI
-├── combinedPipeline.py             # Pipeline orchestrator
-├── AbstractiveSummarizer.py        # Abstractive summarization class
-├── ExtractiveSummarizer.py         # Extractive summarization class
-├── paraphraser.py                  # Paraphrasing functionality
+├── 📁 __pycache__/                 # Python cache files
 │
-├── assets/
-│   └── app_screenshot.png          # Application screenshot
+├── 📁 assets/                      # Static assets
+│   ├── screenshot1.png             # Application screenshot 1
+│   └── screenshot2.png             # Application screenshot 2
 │
-├── requirements.txt                # Python dependencies
-├── .env                            # API keys (create this - not in repo)
-├── .env.example                    # Environment variable template
+├── 📁 configure/                   # Configuration files
+│   ├── config_manager.py           # Configuration manager
+│   └── config.yaml                 # Application configuration
+│
+├── 📁 docs/                        # Documentation
+│   ├── API_Docs.md                 # API documentation
+│   └── Technical_Report.md         # Technical report
+│
+├── 📁 myenv/                       # Virtual environment (not in repo)
+│
+├── 📁 src/                         # Source code
+│   ├── __pycache__/                # Python cache
+│   ├── __init__.py                 # Package initializer
+│   ├── .env                        # Environment variables (API keys)
+│   ├── AbstractiveSummarizer.py    # Abstractive summarization module
+│   ├── combinedPipeline.py         # Main pipeline orchestrator
+│   ├── exceptions.py               # Custom exception classes
+│   ├── ExtractiveSummarizer.py     # Extractive summarization module
+│   ├── logging_system.py           # Logging configuration
+│   └── paraphraser.py              # Text paraphrasing module
+│
 ├── .gitignore                      # Git ignore rules
-│
+├── app.py                          # Main Streamlit application
+├── pyproject.toml                  # Project metadata
 ├── README.md                       # Project documentation (this file)
-├── SETUP_GUIDE.md                  # Detailed setup instructions
-├── PROJECT_DESCRIPTION.md          # Comprehensive project details
-└── LICENSE                         # MIT License
+└── requirements.txt                # Python dependencies
 ```
 
 ## 🎨 UI Features
