@@ -190,7 +190,6 @@ TEXT_MORPH/
 │
 ├── 📁 docs/                        # Documentation
 │   ├── API_Docs.md                 # API documentation
-│   ├── README.md                   # Main documentation
 │   └── Technical_Report.md         # Technical report
 │
 ├── 📁 myenv/                       # Virtual environment (not in repo)
