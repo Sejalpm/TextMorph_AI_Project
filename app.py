@@ -1,10 +1,27 @@
 import streamlit as st
-from combinedPipeline import SummarizationPipeline
+import sys
+from pathlib import Path
+
+# Add src folder to Python path
+src_path = Path(__file__).parent / "src"
+sys.path.insert(0, str(src_path))
+
+# Now import from src folder
+from src.combinedPipeline import SummarizationPipeline
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from src folder
+env_path = src_path / ".env"
+load_dotenv(dotenv_path=env_path)
+
+# Initialize session state for text area
+if 'input_text' not in st.session_state:
+    st.session_state.input_text = ""
+if 'output_text' not in st.session_state:
+    st.session_state.output_text = ""
+if 'output_type' not in st.session_state:
+    st.session_state.output_type = ""
 
 # Page config
 st.set_page_config(
@@ -139,6 +156,24 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Function to save file to Downloads folder
+def save_to_downloads(content, filename):
+    """Save content to user's Downloads folder."""
+    try:
+        # Get Downloads folder path (works on Windows, Mac, Linux)
+        downloads_path = Path.home() / "Downloads"
+        
+        # Create full file path
+        file_path = downloads_path / filename
+        
+        # Write content to file
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        return str(file_path)
+    except Exception as e:
+        return None
+
 # Get API key from environment
 HF_API_KEY = os.getenv('HF_API_KEY')
 
@@ -146,7 +181,7 @@ if not HF_API_KEY:
     st.markdown("""
     <div class="info-box">
         <h2>⚠️ API Key Required</h2>
-        <p>Please add your Hugging Face API key to the .env file</p>
+        <p>Please add your Hugging Face API key to the .env file in the src folder</p>
         <p>Get your key at: <a href="https://huggingface.co/settings/tokens" style="color: #ffd700;">https://huggingface.co/settings/tokens</a></p>
     </div>
     """, unsafe_allow_html=True)
@@ -240,10 +275,15 @@ with tab1:
         st.markdown("### 📝 Input")
         input_text = st.text_area(
             "Enter your text below",
+            value=st.session_state.input_text,
             height=350,
             placeholder="Paste your text here for summarization or paraphrasing...\n\nExample: Long articles, research papers, essays, or any text content you want to process.",
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            key="text_input_area"
         )
+        
+        # Update session state
+        st.session_state.input_text = input_text
         
         # Character count
         if input_text:
@@ -265,6 +305,7 @@ with tab1:
         with col_btn3:
             clear_btn = st.button("🗑️ Clear", use_container_width=True)
             if clear_btn:
+                st.session_state.input_text = ""
                 st.rerun()
     
     with col2:
@@ -282,8 +323,11 @@ with tab1:
                     if summary.startswith("❌") or summary.startswith("⚠️"):
                         st.error(summary)
                     else:
+                        st.session_state.output_text = summary
+                        st.session_state.output_type = "summary"
+                        
                         st.success("✅ Summary Generated Successfully!")
-                        st.text_area("Your Summary", summary, height=300, label_visibility="collapsed")
+                        st.text_area("Your Summary", summary, height=300, label_visibility="collapsed", key="summary_output")
                         
                         # Stats
                         summary_words = len(summary.split())
@@ -299,13 +343,14 @@ with tab1:
                             st.metric("Reduced", f"{reduction}%")
                         
                         # Download button
-                        st.download_button(
-                            label="⬇️ Download Summary",
-                            data=summary,
-                            file_name="text_morph_summary.txt",
-                            mime="text/plain",
-                            use_container_width=True
-                        )
+                        if st.button("⬇️ Download Summary", use_container_width=True, key="download_summary_btn"):
+                            filename = "text_morph_summary.txt"
+                            file_path = save_to_downloads(summary, filename)
+                            if file_path:
+                                st.success(f"✅ File saved to: {file_path}")
+                            else:
+                                st.error("❌ Failed to save file")
+                                
                 except Exception as e:
                     st.error(f"❌ Error: {str(e)}")
         
@@ -317,8 +362,11 @@ with tab1:
                     if paraphrased.startswith("❌") or paraphrased.startswith("⚠️"):
                         st.error(paraphrased)
                     else:
+                        st.session_state.output_text = paraphrased
+                        st.session_state.output_type = "paraphrase"
+                        
                         st.success("✅ Text Paraphrased Successfully!")
-                        st.text_area("Paraphrased Text", paraphrased, height=300, label_visibility="collapsed")
+                        st.text_area("Paraphrased Text", paraphrased, height=300, label_visibility="collapsed", key="paraphrase_output")
                         
                         # Stats
                         paraphrase_words = len(paraphrased.split())
@@ -331,17 +379,27 @@ with tab1:
                             st.metric("Original", original_words)
                         
                         # Download button
-                        st.download_button(
-                            label="⬇️ Download Paraphrase",
-                            data=paraphrased,
-                            file_name="text_morph_paraphrase.txt",
-                            mime="text/plain",
-                            use_container_width=True
-                        )
+                        if st.button("⬇️ Download Paraphrase", use_container_width=True, key="download_paraphrase_btn"):
+                            filename = "text_morph_paraphrase.txt"
+                            file_path = save_to_downloads(paraphrased, filename)
+                            if file_path:
+                                st.success(f"✅ File saved to: {file_path}")
+                            else:
+                                st.error("❌ Failed to save file")
+                                
                 except Exception as e:
                     st.error(f"❌ Error: {str(e)}")
         
-        elif not input_text:
+        # Display previous output if exists
+        elif st.session_state.output_text and not input_text:
+            if st.session_state.output_type == "summary":
+                st.success("✅ Summary (Previous Result)")
+                st.text_area("Your Summary", st.session_state.output_text, height=300, label_visibility="collapsed", key="prev_summary")
+            elif st.session_state.output_type == "paraphrase":
+                st.success("✅ Paraphrase (Previous Result)")
+                st.text_area("Paraphrased Text", st.session_state.output_text, height=300, label_visibility="collapsed", key="prev_paraphrase")
+        
+        elif not input_text and not st.session_state.output_text:
             st.markdown("""
             <div class='output-container'>
                 <div style='text-align: center; padding-top: 60px;'>
