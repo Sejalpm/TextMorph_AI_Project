@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🔮 Text Morph - Advanced Text Summarization and Paraphrasing
 
 <div align="center">
@@ -279,3 +280,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </div>
 
 ---
+=======
+# Text_Morph
+AI-Powered Text Summarization &amp; Paraphrasing Application
+>>>>>>> 3493c041c105889bc6090b03b14c532dfed1dac4
