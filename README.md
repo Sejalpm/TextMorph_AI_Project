@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-# 🔮 Text Morph - Advanced Text Summarization and Paraphrasing
+# 🧠 Text Morph - AI Text Summarization & Paraphrasing
 
 <div align="center">
 
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.28+-FF4B4B.svg?style=flat&logo=streamlit&logoColor=white)
-![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-API-yellow.svg)
+![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-yellow.svg)
 ![NLP](https://img.shields.io/badge/NLP-BART%20%7C%20LLaMA-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-*A beautiful, AI-powered web application that provides intelligent text summarization and paraphrasing using state-of-the-art language models.*
+*An AI-powered web app that helps you summarize and paraphrase text quickly and easily.*
 
 </div>
 
-## 📸 Screenshot
+## 📸 Screenshots
 
-Here is a preview of the application's user interface:
+Here is a preview of Text Morph interface:
 
-![Text Morph Interface](assets/screenshot1.png)
-![Text Morph Interface](assets/screenshot2.png)
+![Text Morph Screenshot 1](assets/screenshot1.png)
+![Text Morph Screenshot 2](assets/screenshot2.png)
 
 ## 📋 Table of Contents
 
@@ -35,73 +34,67 @@ Here is a preview of the application's user interface:
 
 ## 🎯 Project Overview
 
-**Text Morph** is an advanced AI-powered text processing platform designed to help users quickly understand and rework lengthy content. It leverages state-of-the-art Natural Language Processing (NLP) models including Facebook's BART and Meta's LLaMA 3.1 to provide two core functionalities:
+**Text Morph** is a smart AI text tool that lets you shorten and rephrase long text.  
+It uses NLP models including Facebook's **BART** and Meta's **LLaMA 3.1** to provide:
 
-1. **Text Summarization**: Condense long documents into concise summaries using both extractive and abstractive methods
-2. **Text Paraphrasing**: Rephrase content while maintaining its original meaning
+1. **Summarization**: Condense text using extractive or abstractive methods  
+2. **Paraphrasing**: Rephrase content naturally without changing meaning
 
-The application features a modern, professional interface with gradient themes, smooth animations, and an intuitive design built with Streamlit. It's perfect for students, professionals, content creators, and researchers who need to process large amounts of text efficiently.
+The interface is simple, modern, and interactive using Streamlit. Ideal for students, writers, and professionals needing fast text processing.
 
 ## ✨ Features
 
-### 🎨 Modern User Interface
--   **Beautiful Gradient Design**: Professional purple gradient theme with smooth transitions
--   **Tab-Based Navigation**: Organized interface with Process Text, Examples, and How It Works tabs
--   **Responsive Layout**: Works seamlessly on desktop and mobile devices
--   **Real-Time Metrics**: Live character count, word count, and reduction percentage
--   **Smooth Animations**: Hover effects and transitions for enhanced user experience
+### 🎨 Modern Interface
+- Gradient-based purple theme with smooth design
+- Tabs for **Process Text**, **Examples**, **How It Works**
+- Mobile-friendly layout
+- Live character, word count, and reduction percentage
+- Smooth button hover effects
 
-### 🤖 AI-Powered Processing
--   **Dual Summarization Methods**:
-    -   **Extractive**: Selects key sentences from the original text
-    -   **Abstractive**: Generates new summary sentences using AI
--   **Intelligent Paraphrasing**: Natural language rephrasing with multiple variations
--   **Flexible Summary Lengths**: Choose from Short (30-60 words), Medium (60-130 words), or Long (130-200 words)
+### 🤖 AI Processing
+- **Two summarization modes**: Extractive & Abstractive
+- **Paraphrasing**: Multiple alternative phrasings
+- Choose summary length: Short, Medium, Long
 
-### ⚡ Performance & Convenience
--   **Fast Processing**: 2-5 second response time
--   **Cloud-Based**: No model downloads required
--   **Download Results**: Export summaries and paraphrased text as .txt files
--   **API Status Monitoring**: Real-time connection status display
+### ⚡ Convenience
+- Fast results (2-5 sec)
+- Cloud-based (no local model downloads)
+- Download summaries & paraphrases as `.txt`
+- API status indicator for Hugging Face and GROQ
 
 ## 🛠️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
 | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) | Core programming language |
-| ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white) | Web application framework |
+| ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white) | Web app framework |
 | ![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-FFD21E?style=flat) | BART model API access |
-| ![GROQ](https://img.shields.io/badge/GROQ-000000?style=flat&logo=groq&logoColor=white) | LLaMA model inference API |
-| ![Requests](https://img.shields.io/badge/Requests-2CA5E0?style=flat) | HTTP library for API calls |
-| ![Python-dotenv](https://img.shields.io/badge/python--dotenv-ECD53F?style=flat) | Environment variable management |
-| ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) | Custom styling and animations |
+| ![GROQ](https://img.shields.io/badge/GROQ-000000?style=flat&logo=groq&logoColor=white) | LLaMA model API |
+| ![Requests](https://img.shields.io/badge/Requests-2CA5E0?style=flat) | HTTP calls to APIs |
+| ![Python-dotenv](https://img.shields.io/badge/python--dotenv-ECD53F?style=flat) | Manage environment variables |
+| ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) | Custom styles & animations |
 
 ## 🤖 AI Models
 
-### BART (Bidirectional and Auto-Regressive Transformers)
--   **Developer**: Facebook AI Research
--   **Model**: `facebook/bart-large-cnn`
--   **Parameters**: 406M
--   **Purpose**: Text summarization (both extractive and abstractive)
--   **Strengths**: High accuracy, contextual understanding, versatile for various text types
+### BART (Facebook AI)
+- Model: `facebook/bart-large-cnn`
+- Used for: Summarization (extractive & abstractive)
+- Strength: Understands context, accurate summaries
 
-### LLaMA 3.1 (Large Language Model Meta AI)
--   **Developer**: Meta AI
--   **Model**: `llama-3.1-8b-instant`
--   **Parameters**: 8B
--   **Purpose**: Text paraphrasing
--   **Strengths**: Natural language generation, fast inference, maintains semantic meaning
+### LLaMA 3.1 (Meta AI)
+- Model: `llama-3.1-8b-instant`
+- Used for: Paraphrasing
+- Strength: Fast, maintains meaning, multiple variations
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.8 or higher
-- Hugging Face API key (free)
-- GROQ API key (free)
+- Python 3.8+
+- Hugging Face API key
+- GROQ API key
 
 ### Installation
-
-1. **Clone the repository**
+1. **Clone repo:**
    ```bash
    git clone https://github.com/yourusername/text-morph.git
    cd text-morph
@@ -179,38 +172,29 @@ Your default web browser will open automatically at `http://localhost:8501`
 ```
 TEXT_MORPH/
 │
-├── 📁 __pycache__/                 # Python cache files
-│
-├── 📁 assets/                      # Static assets
-│   ├── screenshot1.png             # Application screenshot 1
-│   └── screenshot2.png             # Application screenshot 2
-│
-├── 📁 configure/                   # Configuration files
-│   ├── config_manager.py           # Configuration manager
-│   └── config.yaml                 # Application configuration
-│
-├── 📁 docs/                        # Documentation
-│   ├── API_Docs.md                 # API documentation
-│   └── Technical_Report.md         # Technical report
-│
-├── 📁 myenv/                       # Virtual environment (not in repo)
-│
-├── 📁 src/                         # Source code
-│   ├── __pycache__/                # Python cache
-│   ├── __init__.py                 # Package initializer
-│   ├── .env                        # Environment variables (API keys)
-│   ├── AbstractiveSummarizer.py    # Abstractive summarization module
-│   ├── combinedPipeline.py         # Main pipeline orchestrator
-│   ├── exceptions.py               # Custom exception classes
-│   ├── ExtractiveSummarizer.py     # Extractive summarization module
-│   ├── logging_system.py           # Logging configuration
-│   └── paraphraser.py              # Text paraphrasing module
-│
-├── .gitignore                      # Git ignore rules
-├── app.py                          # Main Streamlit application
-├── pyproject.toml                  # Project metadata
-├── README.md                       # Project documentation (this file)
-└── requirements.txt                # Python dependencies
+├── assets/                  # Images & static files
+│   ├── screenshot1.png
+│   └── screenshot2.png
+├── configure/               # Configuration
+│   ├── config_manager.py
+│   └── config.yaml
+├── docs/                    # Documentation
+│   ├── API_Docs.md
+│   └── Technical_Report.md
+├── src/                     # Source code
+│   ├── __init__.py
+│   ├── AbstractiveSummarizer.py
+│   ├── combinedPipeline.py
+│   ├── exceptions.py
+│   ├── ExtractiveSummarizer.py
+│   ├── logging_system.py
+│   └── paraphraser.py
+├── app.py
+├── requirements.txt
+├── pyproject.toml
+├── .gitignore
+└── README.md
+
 ```
 
 ## 🎨 UI Features
@@ -247,21 +231,21 @@ TEXT_MORPH/
 
 Contributions are welcome! Here's how you can help:
 
-1. 🍴 Fork the repository
-2. 🌿 Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 🔄 Open a Pull Request
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/NewFeature`)
+3. Commit changes (`git commit -m 'Add Feature'`)
+4. Push branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
-### Ideas for Contributions:
-- 🌙 Dark mode toggle
-- 🌍 Multi-language support
-- 📄 PDF/DOCX file upload
-- 📊 Batch processing capabilities
-- 📝 History tracking feature
-- 🎨 Additional theme options
-- 🤖 More AI model options
-- 📱 Progressive Web App (PWA) features
+### Contribution Ideas:
+- Dark mode toggle
+- Multi-language support
+- PDF/DOCX file upload
+- Batch processing 
+- History tracking 
+- Additional theme options
+- New AI model options
+- Progressive Web App (PWA) features
 
 ## 📄 License
 
@@ -271,9 +255,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-### 🌟 If you found this project helpful, please give it a star! ⭐
+### If you found this project helpful, please give it a star! ⭐
 
-**Created with ❤️ by Jeev | Powered by AI**
+**Created by Sejal PM | Powered by AI**
 
 [Report Bug](https://github.com/yourusername/text-morph/issues) · [Request Feature](https://github.com/yourusername/text-morph/issues)
 
